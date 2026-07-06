@@ -96,6 +96,7 @@ def scan(watchlist=WATCHLIST):
                 "breakaway_5d": round(float(excess.tail(5).mean()) * 100, 2),
                 "breakaway_20d": round(float(excess.tail(20).mean()) * 100, 2),
                 "state": last["state"],
+                "adr20": round(float(last["adr20"]), 2) if not pd.isna(last["adr20"]) else None,
                 "nh": round(float(last["nh"]), 1) if not pd.isna(last["nh"]) else None,
                 "d20": round(float(last["d20"]), 1) if not pd.isna(last["d20"]) else None,
                 "asof": labeled[t].index[-1].date().isoformat(),
@@ -112,14 +113,16 @@ def format_table(df):
     lines = []
     for factor, g in df.groupby("factor"):
         lines.append(f"\n=== {factor.upper()} ===  (as of {g['asof'].iloc[0]})")
-        lines.append(f"{'name':<6}{'RS#':>4}{'rs63d':>8}{'brk5d':>8}{'brk20d':>8}  {'state':<10}{'nh':>6}")
+        lines.append(f"{'name':<6}{'RS#':>4}{'rs63d':>8}{'brk5d':>8}{'brk20d':>8}  {'state':<10}{'ADR%':>6}{'nh':>6}")
         for _, r in g.iterrows():
             lead = " <- LEADER" if r["rs_rank"] == 1 and r["state"] not in (None, "broken") else ""
             lines.append(f"{r['ticker']:<6}{str(r['rs_rank']):>4}{r['rs_63d']:>8}"
                          f"{r['breakaway_5d']:>8}{r['breakaway_20d']:>8}  "
-                         f"{str(r['state']):<10}{r['nh']:>6}{lead}")
+                         f"{str(r['state']):<10}{str(r['adr20']):>6}{r['nh']:>6}{lead}")
     lines.append("\nleader = rs_rank 1 AND state != broken (buy candidate; confirm on chart).")
     lines.append("avoid  = rs_rank 2 (historically the worst forward group - the chaser).")
+    lines.append("ADR% = proper high/low range. STRONG hand needs high ADR (~>4) + verified")
+    lines.append("fundamentals; the WEAK/comparison hand may be low-ADR & is fundamentals-exempt.")
     return "\n".join(lines)
 
 

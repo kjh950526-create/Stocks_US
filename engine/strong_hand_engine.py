@@ -121,6 +121,9 @@ def compute_features(df):
     r5hi = c.rolling(5).max(); r5lo = c.rolling(5).min()
     d["range5"] = (r5hi - r5lo) / r5lo * 100
     d["dd20_5"] = d["d20"] - d["d20"].shift(5)
+    # ADR% (Qullamaggie): mean over 20d of (High/Low - 1)*100. NOTE: use the intraday
+    # High/Low RANGE, not close-to-close abs move (the latter understates ADR by ~30%).
+    d["adr20"] = ((d["High"] / d["Low"] - 1) * 100).rolling(20).mean()
     above20 = (c > d["e20"]).astype(float)
     d["prior_above20"] = above20.rolling(50).mean().shift(5)
     d["prior_e20_up"] = (d["e20"].shift(5) > d["e20"].shift(30)).astype(float)

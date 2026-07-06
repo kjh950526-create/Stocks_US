@@ -28,6 +28,14 @@ scanner**.
      pair it with the same factor's weak hand (a lower-RS laggard)** so the user can
      compare co-movement, size the weak hand at ≤½ the strong, and read breakaway.
      The scanner already emits RS#1 and the laggards — report them as a pair.
+   - **A strong-hand recommendation MUST pass two live filters (the weak hand is exempt
+     from both):** (a) **high ADR** — proper high/low ADR% (`mean((High/Low-1)*100,20d)`,
+     NOT close-to-close, which understates by ~30%); hypergrowth runners want ADR% > ~4.
+     (b) **fundamentals live-verified** — latest-quarter revenue growth + profitability +
+     balance-sheet health from filings/press, never from memory. Only the strong hand is
+     entered, so only it needs these; the weak hand is a comparison/sizing gauge and may
+     be low-ADR / weaker-fundamental (e.g. RTX ADR 2.56 = fine as a defense weak hand,
+     not as a strong hand).
 5. Give a market/regime read + candidate leaders, then let the user drive. Entry,
    sizing and runner management follow `trading_playbook_v2.md`, not the scanner.
 
