@@ -57,6 +57,15 @@ scanner**.
   not need to be surfaced to the user.**
 - Prefer Yahoo EOD for anything close-based (this is a close-based, once-per-day
   strategy — intraday live prices are not needed).
+- **Intraday IS available if ever needed (IBKR not required).** The same Yahoo chart
+  endpoint serves near-current quotes during market hours — add `interval=1m|5m|15m`
+  (with `range=1d`) for intraday bars, or read `meta.regularMarketPrice`. Verified
+  2026-07-06 (live session quote, not EOD). Treat as **≤15-min delayed** (free-data
+  norm; the timestamp is stamped ~live but sub-15-min cannot be proven). `hasPrePostMarketData`
+  is true, so pre/after-hours is reachable too. So the IBKR bug does NOT limit us to
+  yesterday's close — it only removes IBKR's snapshot/history tools; Yahoo covers EOD
+  *and* delayed intraday. The strategy (once-daily, close-based, no intraday stops)
+  rarely needs it, but it's there for mid-session position/gap checks.
 - The **IBKR MCP connector is broken** (it stringifies integer/boolean params, so
   `get_price_history` / `get_price_snapshot` fail; string-only tools like
   `search_contracts` still work). Do **not** rely on it for prices. Until Anthropic
