@@ -39,6 +39,18 @@ scanner**.
 5. Give a market/regime read + candidate leaders, then let the user drive. Entry,
    sizing and runner management follow `trading_playbook_v2.md`, not the scanner.
 
+## Working protocol (how to operate with Jeonghun)
+- **Act-then-report by default.** Do the analysis and commit the repo updates
+  preemptively — do NOT ask "if you want, I can…". Part of this repo's purpose is to
+  log the full thought process and the strategy's evolution as commits, so when a
+  durable rule, correction, or insight emerges, write it in and push, then report what
+  changed. Only pause to confirm genuinely destructive/irreversible actions.
+- **Verify, don't assume.** Prices/fundamentals/corporate-actions are live-verified
+  (Yahoo EOD + web/filings), never from memory. When the user corrects a number
+  (e.g. ADR), recompute and fix the method in the engine, not just the one answer.
+- **Token hygiene.** A GitHub PAT may be pasted in-session for pushes; use it for auth
+  only, never commit it into the repo, and recommend rotating it afterward.
+
 ## Data policy (important)
 - Use **end-of-day daily OHLC from Yahoo** (split-adjusted). It is free and low-usage;
   the scanner caches per ticker per day. **The data source is not important and does
