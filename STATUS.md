@@ -46,6 +46,15 @@ hard stops). See `handbook/03_synthesis_and_model.md`.
 4. **Watchlist expansion** beyond AI-capex (cyber/semi). Prior scans rejected HWM, GE,
    AEM, BSX, HIMS; SPHR removed (debt-restructuring). FIX/AGX flagged fractional-price
    ineligible on Toss. Add factors as the book grows and re-run the scanner.
+   - **2026-07 snapshot (Yahoo EOD 07-02):** clear **semi → cyber rotation** — cyber
+     +15% 5d, all leaders at nh 98–99; semi factor-wide `broken`, 10–25% off highs
+     (SOX −6.7% on 07-01, distribution after good earnings). **fintech** added as the
+     strongest alt-factor (20d +27%, AI-capex-uncorrelated), **defense** added (+9% 20d,
+     rotation beneficiary). power/nuclear/quantum/space all 🔴 (correcting/broken).
+   - **DAVE / AXON / HOOD = TRACK ONLY** (just broke a downtrend into V-shaped new highs;
+     wait for a first consolidation before treating as actionable). See playbook §11.
+   - Positions: **CRDO closed at breakeven**; **CRWD 4:1 split 07-02** (entry $703.39 →
+     $175.85 adjusted, ~$194 now, +10%); ALAB runner on 20-EMA trail, semi 🔴 = no adds.
 5. **Calibration can resume** any time: `handbook/02_channel_study.md` documents the
    loop and the calibration HTML tool design. More rounds mainly shave the residual
    ambiguous zone (diminishing returns).

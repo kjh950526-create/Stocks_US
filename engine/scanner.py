@@ -50,8 +50,12 @@ import strong_hand_engine as E
 
 # --------- EDIT ME: factors -> tickers you want to track ---------
 WATCHLIST = {
-    "cyber": ["CRWD", "PANW", "FTNT", "ZS"],
-    "semi":  ["ALAB", "NVDA", "AVGO", "AMD", "MRVL"],
+    "cyber":   ["CRWD", "PANW", "FTNT", "ZS", "S", "OKTA"],
+    "semi":    ["ALAB", "NVDA", "AVGO", "AMD", "MRVL"],
+    "fintech": ["DAVE", "AFRM", "SOFI", "NU"],   # added 2026-07: strongest factor (20d +27%)
+    "defense": ["AXON", "RTX", "PLTR", "LMT"],   # added 2026-07: "Great Rotation" beneficiary
+    # NOTE: DAVE/AXON/HOOD just broke a downtrend into V-shaped new highs -> TRACK ONLY
+    # until a first consolidation forms (engine tags them 'broken' via the prior-trend gate).
     # add your own, e.g. "power": ["GEV","VRT",...], "nuclear":[...]
 }
 RS_LOOKBACK = 63     # trailing days for relative-strength ranking (~3 months)

@@ -24,6 +24,10 @@ scanner**.
    Summarise: which name is the RS leader per factor, its state and breakaway, and
    remember the empirical conclusion — *the leader carries the runners; rank-2 is the
    worst group; co-rest is not a timing edge.*
+   - **When surfacing a factor leader (strong hand) as a watchlist candidate, ALWAYS
+     pair it with the same factor's weak hand (a lower-RS laggard)** so the user can
+     compare co-movement, size the weak hand at ≤½ the strong, and read breakaway.
+     The scanner already emits RS#1 and the laggards — report them as a pair.
 5. Give a market/regime read + candidate leaders, then let the user drive. Entry,
    sizing and runner management follow `trading_playbook_v2.md`, not the scanner.
 
@@ -39,6 +43,13 @@ scanner**.
   fixes it at the platform level, default to Yahoo / web search. See `STATUS.md`.
 - If a domain is blocked, the container network setting may need "All domains".
   (stooq.com is permanently blocked from datacenter IPs — do not use it; Yahoo works.)
+- **Corporate actions (splits/dividends) — check proactively.** Yahoo prices are
+  **split-adjusted**, so a position's pre-split entry price will look off by the split
+  ratio (e.g. CRWD did a 4:1 split effective 2026-07-02: pre-split ~$703 entry → $175.85
+  adjusted; do not read the ~$194 print as a crash). When a recorded entry and the live
+  price diverge by a round multiple, **assume a split first and verify (web) before
+  alarming or acting** — convert the entry to the adjusted basis and move on. The
+  assistant should surface/verify this kind of news itself, not ask the user.
 
 ## Repo map
 ```
