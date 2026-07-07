@@ -54,7 +54,9 @@ hard stops). See `handbook/03_synthesis_and_model.md`.
    - **DAVE / AXON / HOOD = TRACK ONLY** (just broke a downtrend into V-shaped new highs;
      wait for a first consolidation before treating as actionable). See playbook §11.
    - Positions: **CRDO closed at breakeven**; **CRWD 4:1 split 07-02** (entry $703.39 →
-     $175.85 adjusted, ~$194 now, +10%); ALAB runner on 20-EMA trail, semi 🔴 = no adds.
+     $175.85 adjusted, ~$194 now, +10%). **ALAB runner CLOSED 2026-07-06 @ $402.19
+     (+3.1%; first live §4-1 BE-defense front-run); CRDO closed ~BE.** Only position now
+     = CRWD (cyber 🟢). Semi slice fully defended out; no new setups → cash + wait.
 5. **Calibration can resume** any time: `handbook/02_channel_study.md` documents the
    loop and the calibration HTML tool design. More rounds mainly shave the residual
    ambiguous zone (diminishing returns).
