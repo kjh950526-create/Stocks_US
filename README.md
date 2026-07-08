@@ -17,7 +17,8 @@ scanner**.
 
 ## How to respond to "브리핑 해줘" / "brief me" in a new session
 1. Read `STATUS.md` (current conclusions, open items, data policy, IBKR status).
-2. Read the three handbooks in `handbook/` (prior research → channel study → synthesis).
+2. Read the handbooks in `handbook/` (prior research → channel study → synthesis →
+   **04 = metrics & 강손/약손 methodology reference: read this for exact definitions**).
 3. Read `trading_playbook_v2.md` (the live-trading methodology).
 4. **Run the scanner** if the user wants a market read:
    `cd engine && python3 scanner.py` (EOD data, no setup beyond `pip install pandas numpy`).
@@ -89,6 +90,8 @@ handbook/
   01_synchronization_research.md  <- the thesis + empirical pipeline BEFORE the channel study
   02_channel_study.md             <- THIS study: 7-round eye-calibration -> converged label engine
   03_synthesis_and_model.md       <- merged conclusions + scanner-vs-prior criterion + actionable model
+  04_metrics_and_definitions.md   <- GLOSSARY: daily return, correlation(동조성), coupling(결합도),
+                                     RS/leadership, breakaway, ADR-normalization; how 강손/약손 are picked & why
 engine/
   strong_hand_engine.py       <- converged (v7) 7-state chart-state classifier (importable)
   scanner.py                  <- daily strongest-hand scanner (RS rank + breakaway + state)
