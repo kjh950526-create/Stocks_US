@@ -37,6 +37,17 @@ scanner**.
      entered, so only it needs these; the weak hand is a comparison/sizing gauge and may
      be low-ADR / weaker-fundamental (e.g. RTX ADR 2.56 = fine as a defense weak hand,
      not as a strong hand).
+5. **★매 브리핑 상시 점검 — 국면 신호 (2026-07-15 확립, 특이사항 있으면 브리핑에 포함)★**
+   현재 국면 = **상승장 유지 + 소화(옆걸음)**. 아래를 매번 체크해 변화가 있으면 먼저 알릴 것:
+   - **상승장 유지 신호(현재 ON):** SPY 200선 위(+7.8%), 50>200 골든, 돈이 공격 성장팩터
+     (cyber/fintech/megatech)로, 방어섹터(XLU/XLP/XLV/GLD/TLT) 소외, VIX <20.
+   - **상승장 끝/방어 전환 신호(현재 OFF — 켜지면 즉시 경고):** ① SPY 200선 하향이탈 ②
+     방어섹터로 자금 이동(유틸·소비·금·채권 상대강세) ③ VIX 20+ ④ 팩터 리더 지속성 붕괴
+     (리더 자주 교체·리더엣지 음전환) ⑤ megatech 등 대장주 붕괴.
+   - **국면 판별 = 지수(50/200선·방향성) + 리더 지속성(보조·후행) + VIX + 방어섹터 로테이션**을
+     함께. 리더엣지는 추세장에 양수/톱질장에 음수라 국면 보조지표로 쓰되 후행적임(handbook 05).
+   - **톱질/하락 국면이면 정답은 스타일 변경(단타·숏·인버스ETF — 다 백테스트 기각)이 아니라
+     현금.** 전략은 추세장 전용이 사양(§8). 방어 전환은 위 신호가 실제 켜질 때만.
 5. Give a market/regime read + candidate leaders, then let the user drive. Entry,
    sizing and runner management follow `trading_playbook_v2.md`, not the scanner.
 
