@@ -18,6 +18,26 @@ _Last updated: 2026-07 (channel study completed, scanner shipped)._
 clean base, do not wait for co-rest → risk via playbook (partials + 3-layer sizing, no
 hard stops). See `handbook/03_synthesis_and_model.md`.
 
+### Open research tasks (2026-07-15, 검증 후 채택 결정 — 지금 실전 변경 없음)
+1. **되돌림 국면 2R 풀익절 vs 트레일 런** — 톱질/reversion 국면에서 러너를 없애고 2R 풀익절하는
+   게 트레일 런보다 기대값이 나은가? handbook 05 데이터로 백테스트. 기본값은 트레일; 풀익절은
+   "국면이 확실히 톱질일 때만"의 조건부 도구. **입구 축소(현금)가 출구 조정보다 우선**이라는
+   원칙은 불변.
+2. **하락장 인버스ETF/지수풋 방어** — 개별주 숏은 여전히 실전 NO(§7-1: 갭업 무한). 인버스ETF/
+   지수풋으로 하락장 방어가 백테스트상 되나? **연구/페이퍼 트랙만, 실전 아님.** 롱 검증 완료 +
+   stage-2 이후에나 실전 검토.
+
+### 리더엣지 시변성 (2026-07-15, handbook 05 정교화)
+- 팩터별 리더엣지는 **고정 상수 아님 — 시계열로 출렁**(solar σ9 범위 −8~+25, semi −5~+14).
+- **같은 팩터도 부호 뒤바뀜**(semi 2018~20 음수 → 2023~26 강양수). 시장 전체적으로 "리더엣지
+  강한 시기(추세장: 2015·2019·2023~25) vs 약한 시기(톱질장: 2012·2016)"가 있음.
+- ★방법론 한계(Jeonghun 지적): RS는 후행 → 로테이션 국면엔 "과거 리더 ≠ 미래 리더". "리더엣지
+  음수" = 약손이 강손을 이긴 게 아니라 **모멘텀 지속(추세) vs 되돌림(톱질) 국면의 함수**. 팩터
+  변동성이 그 경향 조절(고베타=지속 잦음, 저베타=되돌림 잦음).
+- **함의: 리더 사는 건 "모멘텀 지속" 베팅 = 추세장 전용.** 내 전략 자체가 추세장 사양(결함
+  아님). 톱질/하락장 정답 = 스타일 변경이 아니라 **현금**(안 싸움). 하락장 롱은 압도적 리더
+  명백할 때만 소액. 스타일 다변화(숏·풀익절)는 stage-2 페이퍼검증 후.
+
 ## The tooling
 - `engine/strong_hand_engine.py` — converged **v7** 7-state classifier (broken / flag /
   channel / parabolic / breakout / immature / watch). Product of a 7-round human-eye
