@@ -8,7 +8,9 @@ _Last updated: 2026-07 (channel study completed, scanner shipped)._
 | Same factor moves together (persistent co-movement) | **Confirmed** | Rolling 20/60d return correlation 0.5–0.76, 2020–2026 |
 | Strong hand rests → weak hands rest (co-STATE) | **Confirmed** | co-state lift ~2.0–2.8 on eye-converged labels, **both** cyber & semi cohorts |
 | co-REST (factor resting together) is a forward/timing edge | **Null** | ON vs OFF: no better returns, ON has *fewer* big runners; tail power low |
-| **RS leader (rank 1) carries the fat right tail (runners)** | **Confirmed** | P(fwd40>+20%): leader ~25–27% vs laggard ~7%; +40% moves almost only from leader; max +66% vs +27% |
+| **RS leader (rank 1) carries the fat right tail (runners)** | **Softened (2012–2026 re-test)** | Leader edge REAL but MODEST: rank1 6.5% vs laggard 4.7% (~1.8pp), NOT +7.5–9%. "rank2 worst" REJECTED (≈laggard). "monsters only from leader" FALSE (single biggest +182% was a laggard). Prior figures were an AI-boom small-sample artifact. See handbook 05 |
+| **Leader edge is FACTOR-DEPENDENT** | **New (2012–2026)** | leader−laggard: solar +5.0 / semi +4.4 / megatech +1.7 / cyber +1.3 / software −2.3. Big in high-dispersion/high-beta factors, negative in software → factor choice matters as much as stock choice |
+| Leadership persists; within-factor correlation rises in bear | **New** | P(leader stays) 58–74%, tenure 24–38 trading days; factor corr 0.46–0.56 overall → 0.55–0.68 in bear (gap risk peaks exactly when correlation peaks) |
 | Requiring a clean consolidation helps the leader | **No** | "any valid-uptrend" leader (+9.0%) ≥ "consolidation" leader (+7.5%); the base filter dilutes |
 | Entry-time state (immature/watch/channel) is cleanly decidable | **No (irreducible)** | Jeonghun himself labels these "observe/ambiguous"; = the 5:5 nature of the strategy |
 
