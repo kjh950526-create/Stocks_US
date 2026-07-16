@@ -113,6 +113,7 @@ handbook/
   02_channel_study.md             <- THIS study: 7-round eye-calibration -> converged label engine
   03_synthesis_and_model.md       <- merged conclusions + scanner-vs-prior criterion + actionable model
   04_metrics_and_definitions.md   <- GLOSSARY: daily return, correlation(동조성), coupling(결합도),
+  06_screening_protocol.md      <- 스크리닝 절차: 팩터로테이션→성격→초입(돌파후지속)→리스크→진입
   05_leadership_edge_retest.md    <- 2012-2026 multi-regime re-test: leader edge REAL but MODEST (~1.8pp) & factor-dependent (solar/semi big, software negative); corrects the AI-boom overstatement
                                      RS/leadership, breakaway, ADR-normalization; how 강손/약손 are picked & why
 engine/
