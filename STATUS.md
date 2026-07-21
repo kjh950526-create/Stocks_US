@@ -50,11 +50,19 @@ hard stops). See `handbook/03_synthesis_and_model.md`.
   Flags the leader. Edit `WATCHLIST` to add factors/names.
 
 ## Known issues / environment
-- **IBKR MCP connector: BROKEN.** The harness stringifies integer/boolean params, so
-  `get_price_history` / `get_price_snapshot` fail schema validation. String-only tools
-  (`search_contracts`, `get_theme_details`, `search_investment_topics`) still work.
-  This is a platform-level bug, not fixable from a session. **Workaround: use Yahoo EOD
-  for all prices.** Revisit if/when Anthropic fixes it.
+- **IBKR MCP connector: PARTIALLY WORKING (2026-07-20 재검증).** 이전 기록("전면 broken")은 부정확.
+  - ❌ **가격 툴만 broken:** `get_price_history` / `get_price_snapshot` (정수 파라미터 직렬화 버그).
+    → 가격은 계속 **Yahoo EOD** 사용.
+  - ✅ **계좌 툴은 정상 작동** (파라미터가 없어서 버그를 안 탐): `get_account_positions`,
+    `get_account_summary`, `get_account_balances`, `get_account_orders`, `get_account_trades`.
+    → **연결된 계좌의 포지션·평단·잔고·주문·체결을 Claude가 직접 읽을 수 있다.** 스크린샷 불필요.
+  - ✅ **`search_contracts` 정상**, 그리고 ★**주문 초안 워크플로 전 과정 검증 완료**★:
+    `search_contracts`(종목→contract_id) → `create_order_instruction`(초안 생성, 실주문 아님) →
+    **딥링크 URL 반환** → 사용자가 IBKR 모바일에서 검토 후 **버튼 하나로 제출**.
+    `get_order_instructions`(목록) / `delete_order_instruction`(삭제)도 작동. 초안은 7일 후 만료.
+    → **Claude가 미리 주문 초안을 만들어두고 사용자는 확인·제출만 하면 된다** (취침 중 대비 가능).
+  - ⚠️ 초안·조회가 **어느 계좌로 가는지는 커넥터에 연결된 계좌**에 달림. 페이퍼 운용 시 반드시
+    **페이퍼 계좌로 연결**되었는지 확인할 것.
 - **stooq.com: permanently blocked** from datacenter IPs (TCP timeout, not an allowlist
   issue; "All domains" does not help). Yahoo is the permanent price source.
 - Data source is intentionally invisible to the user; just use Yahoo EOD, minimise usage.
@@ -90,3 +98,33 @@ hard stops). See `handbook/03_synthesis_and_model.md`.
 The scanner narrows *where to look*; the human `trading_playbook_v2.md` decides regime
 (🟢/🟡/🔴), entry trigger (EMA-support or breakout), partial-profit defense, and 3-layer
 sizing (per-name ≤20% cost basis, factor cap on market value, weak hand ≤ half of strong).
+
+---
+
+## 페이퍼 계좌 전환 계획 (2026-07-20 확정)
+
+**목적: 심리 검증이 아니라 전략(가설) 검증.** Jeonghun은 선물로 2년간 탐욕과 싸워온 이력이 있고,
+하드룰이 있으면 실제 돈이 걸렸다고 룰을 어기지 않는다는 것이 본인 판단 — 따라서 "페이퍼는 심리를
+못 시험한다"는 일반론은 이 케이스에 부적절. **지금 소액 실계좌의 목적도 원래 "가설·전략이 장기적으로
+실제 작동하는가"였고, 그건 페이퍼로 검증 가능하다.**
+
+**설정:**
+- IBKR **페이퍼 계좌**, 잔고 **$1,000,000 기본값 → $50,000 정도로 리셋**(Client Portal → Paper
+  Trading Account Reset). $1M 그대로 쓰면 사이징 감각이 완전히 달라짐.
+- **하드스탑 ON으로 운용.** 이유: 페이퍼에서 검증되면 **stage-1로 돌아가지 않고 바로 stage-2로 간다.**
+  따라서 검증 대상은 stage-2 환경(정수주 + 하드스탑)이어야 함.
+- **정수주로 운용** (소수점 권한 불필요) — stage-2 환경과 일치하고, "20% 캡이 1주 값도 안 되는"
+  문제도 사라짐.
+- 체결은 슬리피지 없이 현재가에 채워지므로 **체결가는 낙관적**, 커미션은 실계좌 체계로 계산됨.
+  결과 읽을 때 그만큼 할인.
+- 실계좌 CRWD는 **그대로 유지·병행** (같은 시장에서 실제 vs 페이퍼 비교 데이터).
+
+**★역할 분담:**
+- **Jeonghun** = 하드스탑 켜고 정상 운용. **별도 기록 불필요** — Claude가 IBKR 계좌 툴로 직접 읽음.
+- **Claude** = 매 브리핑마다 각 포지션의 **"하드스탑 없이 종가로 판단했다면?" 반사실(counterfactual)을
+  병행 기록·누적** → 표본이 쌓이면 **"하드스탑이 확률적으로 얼마나 이득인가"**를 분석. stage-2 전환
+  판단의 근거로 삼는다. (기존 백테스트의 최대 한계였던 "갭·무하드스탑 미반영"을 실제 셋업으로 메우는 작업.)
+
+**연결 후 첫 세션 할 일:** ① $50,000 기준 사이징 재계산(종목당 캡·팩터캡·동시 포지션 수)
+② 하드스탑 운용 규칙 확정(현재는 종가 수동이라 규칙 자체가 없음) ③ 와치리스트 중 조건 충족 종목
+주문 초안 생성.

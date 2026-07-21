@@ -89,10 +89,13 @@ scanner**.
   yesterday's close — it only removes IBKR's snapshot/history tools; Yahoo covers EOD
   *and* delayed intraday. The strategy (once-daily, close-based, no intraday stops)
   rarely needs it, but it's there for mid-session position/gap checks.
-- The **IBKR MCP connector is broken** (it stringifies integer/boolean params, so
-  `get_price_history` / `get_price_snapshot` fail; string-only tools like
-  `search_contracts` still work). Do **not** rely on it for prices. Until Anthropic
-  fixes it at the platform level, default to Yahoo / web search. See `STATUS.md`.
+- The **IBKR MCP connector is only PARTIALLY broken** (재검증 2026-07-20): price tools
+  (`get_price_history`/`get_price_snapshot`) fail on int-param serialization, but
+  **account tools work** (`get_account_positions`/`summary`/`balances`/`orders`/`trades`)
+  and so does the **order-instruction workflow** (`search_contracts` →
+  `create_order_instruction` → deep link the user submits with one tap). So: prices from
+  Yahoo, but **read the user's actual positions from IBKR directly** and draft orders for
+  them. See `STATUS.md`.
 - If a domain is blocked, the container network setting may need "All domains".
   (stooq.com is permanently blocked from datacenter IPs — do not use it; Yahoo works.)
 - **Corporate actions (splits/dividends) — check proactively.** Yahoo prices are
