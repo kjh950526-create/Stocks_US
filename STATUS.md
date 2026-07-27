@@ -65,6 +65,7 @@ hard stops). See `handbook/03_synthesis_and_model.md`.
     **페이퍼 계좌로 연결**되었는지 확인할 것.
 - **stooq.com: permanently blocked** from datacenter IPs (TCP timeout, not an allowlist
   issue; "All domains" does not help). Yahoo is the permanent price source.
+- **데이터 소스가 막히면 알아서 새 루트를 뚫는다**(Jeonghun 2026-07-25 지시). 가격=Yahoo EOD, 펀더=stockanalysis.com `/stocks/{T}/__data.json`(Yahoo quoteSummary는 crumb/401로 막힘). 막힐 때마다 대체 소스 탐색 후 STATUS에 갱신.
 - Data source is intentionally invisible to the user; just use Yahoo EOD, minimise usage.
 
 ## Open items / next candidates
