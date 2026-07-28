@@ -51,8 +51,11 @@ hard stops). See `handbook/03_synthesis_and_model.md`.
 
 ## Known issues / environment
 - **IBKR MCP connector: PARTIALLY WORKING (2026-07-20 재검증).** 이전 기록("전면 broken")은 부정확.
-  - ❌ **가격 툴만 broken:** `get_price_history` / `get_price_snapshot` (정수 파라미터 직렬화 버그).
-    → 가격은 계속 **Yahoo EOD** 사용.
+  - ⚠️ **가격 툴 2026-07-28 세션에서 작동 확인** (`get_price_snapshot`/`get_price_history` 정수·불린
+    파라미터 정상 호출, DAVE 데이터가 Yahoo와 일치 = 교차검증됨). 이전의 정수 직렬화 버그가 수정된
+    것으로 보임. **단 1회 확인이라 다음 세션에 재검증 필요** — 안정 확인 전까진 "고쳐짐" 단정 보류.
+    역할 분담: **장중 실시간·스냅샷·bid/ask = IBKR 우선 시도**, 안 되면 Yahoo. **백테스트·대량 일봉
+    = Yahoo 유지**(캐시·split조정·대량조회 유리).
   - ✅ **계좌 툴은 정상 작동** (파라미터가 없어서 버그를 안 탐): `get_account_positions`,
     `get_account_summary`, `get_account_balances`, `get_account_orders`, `get_account_trades`.
     → **연결된 계좌의 포지션·평단·잔고·주문·체결을 Claude가 직접 읽을 수 있다.** 스크린샷 불필요.
