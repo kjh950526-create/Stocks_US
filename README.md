@@ -15,6 +15,21 @@ decisions near the US close). Alongside live trading there is a quantitative res
 track — the **"synchronization thesis"** — and its practical output, a **strongest-hand
 scanner**.
 
+## 장 전(pre-market) 뉴스 체크 루틴 (2026-08-03 확립)
+개장 전 브리핑 요청 시 아래 3가지를 먼저 훑고 시작. Jeonghun은 22:30 KST(=09:30 ET 개장)에
+깨어있으므로 개장 30~60분 전(21:30~22:00 KST)에 빠르게 체크 가능.
+
+1. **밤사이 매크로 헤드라인** — 지금 국면 최우선은 **이란 협상 상태**(진전/결렬이 유가→리스크온/오프
+   결정). + 유가 방향, 10년물, VIX. = "오늘 리스크온이 유지되나 깨지나".
+2. **보유/후보 개별 뉴스, 특히 실적 결과** — 밤사이 갭날 뉴스(실적·가이던스·M&A).
+3. **프리마켓에서 후보 위치** — 트리거 레벨 근처인가, 갭업/다운했나.
+
+**★목적은 "진입 취소 필터"지 "진입 트리거"가 아니다.**
+- ✅ 리스크 회피(악재로 국면 바뀌면 그날 진입 보류) + 맥락 이해(왜 갭났나).
+- ❌ 뉴스가 좋아서 진입 / 헤드라인 갭업 추격. **뉴스는 이미 가격에 반영됨** — 보고 들어가면 남들
+  산 뒤에 사는 것. **진입 트리거는 여전히 차트(예: FTNT $165 돌파)**, 뉴스는 그 트리거가 나와도
+  "오늘 들어가면 안 될 이유가 있나"를 확인하는 용도.
+
 ## How to respond to "브리핑 해줘" / "brief me" in a new session
 1. Read `STATUS.md` (current conclusions, open items, data policy, IBKR status).
 2. Read the handbooks in `handbook/` (prior research → channel study → synthesis →
