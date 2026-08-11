@@ -26,6 +26,14 @@ Jeonghun이 "내가 말할 때마다 네 의견이 확확 바뀐다, 진짜 논�
   아니라 "정당한 자리+첫 완결거래 표본가치+리스크 0.54% 통제"—이 근거를 분명히 하고, 최적이라 말하지 말 것.
 - 사용자는 아첨이 아니라 **논리 평가**를 원한다. 동의할 땐 왜 동의하는지 데이터를 대고, 아니면 반대하라.
 
+## ★★★ 브리핑 필수 2번 항목 = 팩터 스캔 + 팩터內 리더 로테이션 (프로토콜, 잊지말것) ★★★
+매 브리핑에서 팩터를 훑을 때 **두 층위를 항상 본다:**
+1. **팩터 간:** 어느 팩터가 상승/하락하는지(정규화 모멘텀 순위) — 이미 하던 것.
+2. **★팩터 內 종목:** 각 주요 팩터 안에서 종목들이 어떻게 상승/하락해 **리더(RS63 1위)가 바뀌는지** 항상
+   추적. 리더는 팩터끼리도, 팩터 안에서도 로테이션한다(two-level). 예(2026-08-10): observability 리더
+   DDOG→NET 교체, cyber 리더 FTNT→PANW/OKTA로 이동을 놓칠 뻔함. **"우리가 꽂힌 종목"이 아직 리더인지
+   매번 RS63 재계산으로 확인.** 리더 뒤바뀌면 후보도 교체.
+
 ## ★★★ 모든 브리핑 필수 1번 항목 = 매크로/뉴스 (반복 실패 중, 절대 누락 금지) ★★★
 **Claude는 이걸 반복해서 빼먹는다 (2026-07-23, 08-04, 08-05 연속 누락, 매번 Jeonghun이 지적).**
 **어떤 브리핑이든(장중/종가/장전) 첫 번째로 web_search를 돌려 "오늘/밤사이 왜 움직였나"를 찾는다.**
@@ -143,6 +151,13 @@ Jeonghun이 "내가 말할 때마다 네 의견이 확확 바뀐다, 진짜 논�
   (e.g. ADR), recompute and fix the method in the engine, not just the one answer.
 - **Token hygiene.** A GitHub PAT may be pasted in-session for pushes; use it for auth
   only, never commit it into the repo, and recommend rotating it afterward.
+
+## 스크리너 협업 방식 (2026-08-10 확립)
+Jeonghun이 가끔 TradingView 등에서 **차트 기준 스크리너**를 돌려 종목 리스트를 준다. 그때 Claude는:
+1. 각 종목 **펀더(STEP 0.5: 매출성장+수익성) 라이브 확인** → 적자/임상단계 바이오 등은 배제(차트 강해도).
+2. **상관으로 팩터 소속 판정** → 기존 팩터에 속하면 그 로스터에 편입, 새 묶음이면 **신규 팩터 신설**.
+3. 스크리너(bottom-up 차트) + 체크리스트(top-down 팩터)는 상호보완: 스크리너가 팩터 밖 강종목 발굴,
+   체크리스트가 펀더+구조로 거른다. **놓치는 건 보통 "종목"이 아니라 "팩터 지도의 구멍"**(예: AI인프라).
 
 ## Data policy (important)
 - Use **end-of-day daily OHLC from Yahoo** (split-adjusted). It is free and low-usage;
