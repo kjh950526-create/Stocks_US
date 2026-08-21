@@ -1,3 +1,9 @@
+# ★★★ 행동 후 보고 — 물어보지 말 것 (절대 규칙, 반복 위반 중) ★★★
+Jeonghun이 반복해서 지적: **분석하고 기록하는 것은 허락받지 말고 선조치.** "기록할까?" "이대로 할까?"
+같은 확인 질문 금지. 논의가 끝나 결론이 나면 **묻지 말고 바로 커밋**하고 결과만 보고. 파괴적/되돌릴 수
+없는 실거래 주문만 확인받는다(기록·분석·백테스트·커밋은 전부 선조치). 이 규칙을 어기면 Jeonghun이
+같은 지적을 반복해야 하는 낭비가 생김. **커밋 후 "기록 완료"로 보고.**
+
 # Stocks_US — Jeonghun's US-equity momentum research + tooling
 
 **This repo is written for an AI assistant to read at the start of a session, not
