@@ -1,3 +1,9 @@
+# ★★실행 환경 (절대 잊지 말 것) ★★
+- **현재 디폴트 = IBKR paper account.** 모든 진입/사이징/손절 계산은 IBKR paper 기준(정수주, 하드스탑
+  가능, 계좌 ~$19.8k). Toss/프랙셔널은 지금 논외 — 언급하지 말 것. 프랙셔널·소수점·Toss 제약을 사이징
+  논의에 끌어오지 않는다.
+- 검증단계 목적 = 전략 검증. IBKR MCP로 포지션/계좌 읽고, Yahoo EOD로 가격/차트.
+
 # STATUS — read first to resume
 
 _Last updated: 2026-07 (channel study completed, scanner shipped)._
