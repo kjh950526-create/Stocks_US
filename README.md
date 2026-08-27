@@ -88,6 +88,12 @@ Jeonghun이 "내가 말할 때마다 네 의견이 확확 바뀐다, 진짜 논�
   산 뒤에 사는 것. **진입 트리거는 여전히 차트(예: FTNT $165 돌파)**, 뉴스는 그 트리거가 나와도
   "오늘 들어가면 안 될 이유가 있나"를 확인하는 용도.
 
+## ★★브리핑 필수 순서 (팩터 상관/순위가 매크로보다 우선) ★★
+이 전략의 핵심은 **팩터 로테이션**이다. 매 브리핑에서 **팩터별 순위 + 상관/한몸 여부 + 각 팩터의
+순위 궤적(저점선점 vs 1등추격 판별)**을 매크로보다 먼저·비중있게 다룬다. 매크로는 "왜"의 보조일 뿐,
+전략 판단의 본체는 팩터 구조다. (2026-08-26 Jeonghun 지적: 매크로 강조하다 팩터 상관을 뒤로 뺀 것을
+교정.) 브리핑 1번=팩터순위+궤적, 2번=매크로 why, 3번=포지션/트리거.
+
 ## How to respond to "브리핑 해줘" / "brief me" in a new session
 1. Read `STATUS.md` (current conclusions, open items, data policy, IBKR status).
 2. Read the handbooks in `handbook/` (prior research → channel study → synthesis →
